@@ -1,0 +1,46 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:10-browsers
+
+    working_directory: ~/repo
+    steps:
+      - checkout
+
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+
+      - run:
+          name: Install
+          command: yarn install
+
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+
+      - run: |
+          sleep 2
+          yarn test
+
+      #store artifacts
+      - store_artifacts:
+          name: Uploading reports
+          path: ./mochawesome-report
+
+workflows:
+  test-run:
+    jobs:
+    - build
+  schedule-workflow:
+    triggers:
+    - schedule:
+        cron: 0 * * * *
+        filters:
+          branches:
+            only:
+            - master
+    jobs:
+    - build
+  version: 2
