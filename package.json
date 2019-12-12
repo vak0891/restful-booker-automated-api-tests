@@ -1,0 +1,38 @@
+{
+  "name": "api-testing",
+  "version": "1.0.0",
+  "description": "API Tests for Restful Booker platform",
+  "repository": "https://git.toptal.com/screening/vaishnavi-ajit-kumar/restful-booker-api-tests",
+  "author": "Vaishnavi Ajit Kumar",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "chai": "^4.2.0",
+    "delay": "^4.3.0",
+    "global": "^4.4.0",
+    "mocha": "^6.2.2",
+    "mocha-reporter": "^0.1.1",
+    "mochawesome": "^4.1.0",
+    "pg": "^7.12.1"
+  },
+  "scripts": {
+    "test": "mocha --reporter mochawesome --timeout 10000 --require babel-core/register",
+    "lint": "eslint */*.js --quiet",
+    "lint-fix": "eslint */*.js --fix"
+  },
+  "pre-commit": [
+    "lint",
+    "test"
+  ],
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-es2015": "^6.24.1",
+    "eslint": "^6.3.0",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-mocha": "^6.1.1",
+    "eslint-plugin-prettier": "^3.1.0",
+    "pre-commit": "^1.2.2",
+    "prettier": "^1.18.2"
+  }
+}
