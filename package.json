@@ -5,7 +5,7 @@
   "repository": "https://git.toptal.com/screening/vaishnavi-ajit-kumar/restful-booker-api-tests",
   "author": "Vaishnavi Ajit Kumar",
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "chai": "^4.2.0",
     "delay": "^4.3.0",
     "global": "^4.4.0",
